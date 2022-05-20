@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="col-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="h4">id</th>
+          <th class="h4">Name</th>
+          <th class="h4">Collection</th>
+          <th class="h4">Price ($USD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of articulos">
+          <td>
+            <dd>{{c.id}}</dd>
+          </td>
+          <td>
+            <dd>{{c.name}}</dd>
+          </td>
+          <td>
+            <dd>{{c.collection}}</dd>
+          </td>
+          <td>
+            <dd>{{c.price}}</dd>
+          </td>
+      </tr>
+      </tbody>
+    </table>
+    <p>Average price: {{ average }}</p>
+  </div>
+</div>
