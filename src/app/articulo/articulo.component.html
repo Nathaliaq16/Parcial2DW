@@ -1,31 +1,46 @@
+<div style = "background-color: rgb(220, 220, 220); height: 5rem;">
+  <h2 style = "font-family: Verdana; font-size: 3rem; text-align: center; padding-top: 0.5rem; font-weight: bold;">HYPERBEAST</h2>
+</div>
+<br>
+<br>
+<div id = "titulo_2">
+  <h2 style = "font-family: Verdana; padding-left: 1rem;"> Artículos disponiles</h2>
+</div>
+<br>
 <div class="container-fluid">
   <div class="col-6">
     <table class="table">
-      <thead>
+      <thead class = "table-dark">
         <tr>
-          <th class="h4">id</th>
-          <th class="h4">Name</th>
-          <th class="h4">Collection</th>
-          <th class="h4">Price ($USD)</th>
+          <th class="h4" style = "font-family: Verdana;">Id</th>
+          <th class="h4" style = "font-family: Verdana;">Name</th>
+          <th class="h4" style = "font-family: Verdana;">Collection</th>
+          <th class="h4" style = "font-family: Verdana;">Price ($USD)</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let c of articulos">
+        <tr style = "cursor: pointer;" (click) = "onSelected(c)" *ngFor="let c of articulos">
           <td>
-            <dd>{{c.id}}</dd>
+            <dd style = "font-family: Verdana;">{{c.id}}</dd>
           </td>
           <td>
-            <dd>{{c.name}}</dd>
+            <dd style = "font-family: Verdana;">{{c.name}}</dd>
           </td>
           <td>
-            <dd>{{c.collection}}</dd>
+            <dd style = "font-family: Verdana;">{{c.collection}}</dd>
           </td>
           <td>
-            <dd>{{c.price}}</dd>
+            <dd style = "font-family: Verdana;">{{c.price}}</dd>
           </td>
       </tr>
       </tbody>
     </table>
-    <p>Average price: {{ average }}</p>
+    <div id = div_avg>
+      <p style = "font-family: Verdana; font-size: 1.2rem;">Average price: {{ average }}</p>
+    </div>
+  </div>
+  <div *ngIf="selected">
+    <app-articulo-detail [articuloDetail]="selectedArticulo"></app-articulo-detail>
   </div>
 </div>
+

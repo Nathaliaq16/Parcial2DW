@@ -13,6 +13,9 @@ export class ArticuloComponent implements OnInit {
   constructor(private articuloService: ArticuloService) { }
   average:number = 0;
 
+  selectedArticulo!: Articulo;
+  selected = false;
+
   getArticulos() {
     this.articuloService.getArticulos().subscribe(articulos => {
       this.articulos = articulos;
@@ -27,6 +30,12 @@ export class ArticuloComponent implements OnInit {
   getAveragePrice() {
     let total: number = 0;
     this.articulos.forEach((articulo) => total = total + articulo.price);
-    this.average = total/this.articulos.length;
+    this.average = Math.round(total/this.articulos.length);
+
+  }
+
+  onSelected(articulo: Articulo): void {
+    this.selected = true;
+    this.selectedArticulo = articulo;
   }
 }
